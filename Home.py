@@ -175,9 +175,9 @@ def create_zip(model_buffer):
 
 
 def main():
-    st.markdown("<center><h1>Artificial Intelligence (AI) Studio</h1></center>", unsafe_allow_html=True)
+    st.markdown("<center><h1>Model Studio</h1></center>", unsafe_allow_html=True)
     #st.lottie("https://lottie.host/f9ecc8cd-9a0e-49f5-bfbe-89bb59ca794b/Qnv20SfUVi.json", height=50, width=50, quality="high")
-    st.markdown("<center><h4><b>By Metric Coders</b></h4></center>", unsafe_allow_html=True)
+    # st.markdown("<center><h4><b>By Metric Coders</b></h4></center>", unsafe_allow_html=True)
     st.markdown("<center><h4><b>A No-Code Platform to train and deploy your Large Language Models</b></h4></center>", unsafe_allow_html=True)
     dataset = load_iris()
     clf = AdaBoostClassifier()
@@ -338,7 +338,7 @@ def main():
         col2.line_chart(chart_data)
 
     else:
-        chart_data = pd.DataFrame(X, columns=y.unique())
+        chart_data = pd.DataFrame(X, columns=y)
 
         col2.markdown("<center><h3>Scatter Chart Visualization</h3></center>", unsafe_allow_html=True)
 
@@ -958,7 +958,7 @@ def main():
         )
 
     elif ml_algorithm == "CCA":
-        n_components = col1.slider("n_components", min_value=1, max_value=100, value=2, step=1)
+        n_components = col1.slider("n_components", min_value=1, max_value=100, value=1, step=1)
         scale = col1.selectbox("scale", [True, False], index=0)
         max_iter = col1.slider("max_iter", min_value=100, max_value=1000, value=500, step=10)
         copy = col1.selectbox("copy", [True, False], index=0)
@@ -1062,7 +1062,7 @@ def main():
             solver=solver,
             fit_intercept=fit_intercept,
             warm_start=warm_state,
-            random_state=random_state
+            # random_state=random_state
         )
 
     elif ml_algorithm == "Gaussian Process Regressor":
@@ -1511,7 +1511,7 @@ def main():
         )
 
     elif ml_algorithm == "SGD Regressor":
-        loss = col1.selectbox("loss", ["l2", "l1", "elasticnet", None], index=0)
+        loss = col1.selectbox("loss", ["squared_error", "l1", "elasticnet", None], index=0)
         alpha = col1.slider("alpha", min_value=0.0001, max_value=1.000, value=0.0001, step=0.0001)
         fit_intercept = col1.selectbox("fit_intercept", [True, False], index=0)
         max_iter = col1.slider("max_iter", min_value=1000, max_value=10000, value=100, step=100)
@@ -1658,7 +1658,7 @@ def main():
         col1.markdown(f"<b>Mean Absolute Error:</b> {mean_absolute_error(y_test, y_pred)}", unsafe_allow_html=True)
         col1.markdown(f"<b>Mean Squared Error:</b> {mean_squared_error(y_test, y_pred)}",
                       unsafe_allow_html=True)
-        col1.markdown(f"<b>Mean Squared Error (Squared = False): </b> {mean_squared_error(y_test, y_pred, squared=False)}", unsafe_allow_html=True)
+        col1.markdown(f"<b>Mean Squared Error (Squared = False): </b> {mean_squared_error(y_test, y_pred)}", unsafe_allow_html=True)
         col1.markdown(f"<b>Mean Squared Log Error: </b> {mean_squared_log_error(y_test, y_pred)}", unsafe_allow_html=True)
         col1.markdown(f"<b>Median Absolute Error:</b> {median_absolute_error(y_test, y_pred)}",
                       unsafe_allow_html=True)
