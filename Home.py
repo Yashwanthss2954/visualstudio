@@ -174,8 +174,8 @@ def main():
     col2.markdown("<center><h3>Data Visualization</h3></center>" ,unsafe_allow_html=True)
     col2.dataframe(pd.DataFrame(X), use_container_width=True)
 
-    col2.markdown("<center><h3>Target Visualization</h3></center>", unsafe_allow_html=True)
-    col2.dataframe(pd.DataFrame(y), use_container_width=True)
+    # col2.markdown("<center><h3>Target Visualization</h3></center>", unsafe_allow_html=True)
+    # col2.dataframe(pd.DataFrame(y), use_container_width=True)
     if not own_dataset:
         chart_data = pd.DataFrame(X, columns=dataset.feature_names)
 
